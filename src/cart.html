@@ -64,6 +64,143 @@
 			</div>
 		</header>
 
+		<main class="main">
+			<section class="cart">
+				<h2 class="visually-hidden">Корзина</h2>
+				<div class="container cart__container">
+					<section class="cart-goods">
+						<h3 class="cart-goods__title">Корзина</h3>
+						<ul class="cart-goods__list">
+							<li class="cart-goods__item item">
+								<img class="item__img" src="img/cart/1.jpg" alt="" />
+								<div class="item__detail">
+									<h4 class="item__title">Монитор AOC 24G2U/BK</h4>
+									<p class="item__vendor-code">Артикул: 654651968</p>
+								</div>
+								<div class="item__control">
+									<div class="item__count">
+										<button class="item__btn item__btn_dec">-</button>
+										<output class="item__number">1</output>
+										<button class="item__btn item__btn_inc">+</button>
+									</div>
+									<p class="item__price">20799 ₽</p>
+									<button class="item__remove-cart" aria-label="удалить товар">
+										<svg>
+											<use href="#remove"></use>
+										</svg>
+									</button>
+								</div>
+							</li>
+							<li class="cart-goods__item item">
+								<img class="item__img" src="img/cart/2.jpg" alt="" />
+								<div class="item__detail">
+									<h4 class="item__title">Смарт-часы CANYON Lollypop</h4>
+									<p class="item__vendor-code">Артикул: 654651968</p>
+								</div>
+								<div class="item__control">
+									<div class="item__count">
+										<button class="item__btn item__btn_dec">-</button>
+										<output class="item__number">1</output>
+										<button class="item__btn item__btn_inc">+</button>
+									</div>
+									<p class="item__price">12479 ₽</p>
+									<button class="item__remove-cart" aria-label="удалить товар">
+										<svg>
+											<use href="#remove"></use>
+										</svg>
+									</button>
+								</div>
+							</li>
+							<li class="cart-goods__item item">
+								<img class="item__img" src="img/cart/3.jpg" alt="" />
+								<div class="item__detail">
+									<h4 class="item__title">Смарт-приставка Selenga R1</h4>
+									<p class="item__vendor-code">Артикул: 654651968</p>
+								</div>
+								<div class="item__control">
+									<div class="item__count">
+										<button class="item__btn item__btn_dec">-</button>
+										<output class="item__number">1</output>
+										<button class="item__btn item__btn_inc">+</button>
+									</div>
+									<p class="item__price">7944 ₽</p>
+									<button class="item__remove-cart" aria-label="удалить товар">
+										<svg>
+											<use href="#remove"></use>
+										</svg>
+									</button>
+								</div>
+							</li>
+						</ul>
+					</section>
+
+					<section class="cart__address address">
+						<h3 class="cart__title">Адрес доставки</h3>
+						<form class="address__form">
+							<select class="address__item address__item_select" name="city">
+								<option value="" disabled selected>горорд</option>
+								<option value="msk">Моска</option>
+								<option value="spb">Санкт-Петербург</option>
+								<option value="kazan">Казань</option>
+							</select>
+							<label><input type="text" placeholder="Улица, дом" /></label>
+							<label><input type="text" placeholder="Квартира" /></label>
+							<label><input type="text" placeholder="ФИО" /></label>
+							<label><input type="text" placeholder="Индекс" /></label>
+							<button class="address__btn address__item_btn">Сохранить</button>
+
+							<label class="address__ladel-save"
+								><input name="save-address" type="checkbox" />
+								Запомнить этот адрес
+							</label>
+						</form>
+					</section>
+
+					<section class="cart__total">
+						<h3 class="visually-hidden">Итог</h3>
+						<ul class="total__table">
+							<li class="total__row total__row_header">
+								<span>Итого</span>
+								<span>41 222 ₽</span>
+							</li>
+							<li class="total__row total__row_gray">
+								<span>Товары, 3 шт.</span>
+								<span>41 222 ₽</span>
+							</li>
+							<li class="total__row total__row_gray">
+								<span>Скидка</span>
+								<span>0 ₽</span>
+							</li>
+							<li class="total__row total__row_gray">
+								<span>Доставка</span>
+								<span>0 ₽</span>
+							</li>
+							<li class="total__row">
+								<span>Дата</span>
+								<span>01 - 03 июля</span>
+							</li>
+							<li class="total__row">
+								<span>Оплата</span>
+								<span>Картой</span>
+							</li>
+						</ul>
+						<div class="total__order">
+							<button class="total__submit">Оформить Заказ</button>
+							<label class="total__agree">
+								<input type="checkbox" name="agree" />
+
+								<span>
+									Согласен с
+									<a class="total__agree-link" href="#">условиями</a> правил
+									пользования торговой площадкой и правилами возврата
+								</span>
+							</label>
+						</div>
+					</section>
+				</div>
+			</section>
+		</main>
+
 		<footer class="footer">
 			<h2 class="visually-hidden">Подвал сайта</h2>
 			<div class="container">
@@ -138,7 +275,11 @@
 					</ul>
 					<ul class="footer__social social">
 						<li class="social__item">
-							<a class="social__link" href="#">
+							<a
+								class="social__link"
+								href="#"
+								aria-label="Отправить сообщение в whatsup"
+							>
 								<svg
 									width="26"
 									height="26"
@@ -157,7 +298,7 @@
 							</a>
 						</li>
 						<li class="social__item">
-							<a class="social__link" href="#">
+							<a class="social__link" href="#" aria-label="Перейти в youtube">
 								<svg
 									width="26"
 									height="26"
@@ -172,7 +313,7 @@
 							</a>
 						</li>
 						<li class="social__item">
-							<a class="social__link" href="#">
+							<a class="social__link" href="#" aria-label="Перейти в telegram">
 								<svg
 									width="26"
 									height="26"
@@ -190,5 +331,19 @@
 				</div>
 			</div>
 		</footer>
+		<svg style="display: none" width="32" height="32">
+			<symbol
+				id="remove"
+				width="20"
+				height="19"
+				viewbox="0 0 20 19"
+				fill="currentColor"
+				xmlns="http://www.w3.org/2000/svg"
+			>
+				<path
+					d="M19.3337 2.04667L17.4537 0.166668L10.0003 7.62L2.54699 0.166668L0.666992 2.04667L8.12033 9.5L0.666992 16.9533L2.54699 18.8333L10.0003 11.38L17.4537 18.8333L19.3337 16.9533L11.8803 9.5L19.3337 2.04667Z"
+				/>
+			</symbol>
+		</svg>
 	</body>
 </html>
