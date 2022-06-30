@@ -1,0 +1,70 @@
+@import 'libs/normalize';
+@import 'style/fonts';
+@import 'style/var';
+
+.header {
+	// .header__logo
+	&__logo {
+	}
+	// .header__search
+	&__search {
+	}
+	// .header__nav
+	&__nav {
+	}
+	// .header__phone
+	&__phone {
+	}
+	// .header__cart
+	&__cart {
+	}
+}
+.visually-hidden {
+}
+.container {
+}
+.search {
+	// .search__input
+	&__input {
+	}
+	// .search__button
+	&__button {
+	}
+}
+.footer {
+	// .footer__logo
+	&__logo {
+	}
+	// .footer__column
+	&__column {
+	}
+	// .footer__column-title
+	&__column-title {
+	}
+	// .footer__list
+	&__list {
+	}
+	// .footer__list_double
+	&__list_double {
+	}
+	// .footer__item
+	&__item {
+	}
+	// .footer__link
+	&__link {
+	}
+	// .footer__list_contacts
+	&__list_contacts {
+	}
+	// .footer__social
+	&__social {
+	}
+}
+.social {
+	// .social__item
+	&__item {
+	}
+	// .social__link
+	&__link {
+	}
+}
