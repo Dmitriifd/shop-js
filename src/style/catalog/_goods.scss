@@ -1,0 +1,15 @@
+.goods {
+
+	// .goods__list
+	&__list {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+        grid-gap: 40px 30px;
+	}
+	// .goods__item
+	&__item {
+        min-width: 310px;
+        max-width: 340px;
+	}
+}
+

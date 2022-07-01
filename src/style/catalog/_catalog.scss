@@ -1,0 +1,29 @@
+.catalog {
+	// .catalog__title
+	&__title {
+		font-weight: 700;
+		font-size: 44px;
+		line-height: 54px;
+        margin-bottom: 10px;
+	}
+	// .catalog__container
+	&__container {
+		display: grid;
+		grid-template-columns: 4fr 1fr;
+        grid-gap: 72px 30px;
+	}
+	// .catalog__goods
+	&__goods {
+	}
+	// .catalog__filter
+	&__filter {
+	}
+	// .catalog__pagination
+	&__pagination {
+		grid-column: 1/3;
+	}
+}
+
+
+
+

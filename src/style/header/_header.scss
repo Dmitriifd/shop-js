@@ -1,0 +1,40 @@
+.header {
+	padding-top: 26px;
+	padding-bottom: 26px;
+
+	// .header__container
+	&__container {
+		display: grid;
+		grid-template-columns: 1fr 3fr 1fr;
+		gap: 30px;
+	}
+	// .header__logo
+	&__logo {
+        display: block;
+	}
+	// .header__search
+	&__search {
+		justify-self: center;
+	}
+	// .header__nav
+	&__nav {
+		justify-self: end;
+		display: flex;
+		align-items: center;
+		max-width: 330px;
+		justify-content: space-between;
+		width: 100%;
+	}
+	// .header__phone
+	&__phone {
+		display: flex;
+		align-items: center;
+		gap: 5px;
+		font-weight: 500;
+		font-size: 18px;
+		line-height: 22px;
+	}
+	// .header__cart
+	&__cart {
+	}
+}

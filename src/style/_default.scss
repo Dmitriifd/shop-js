@@ -13,6 +13,8 @@ body {
   min-width: 320px;
   min-height: 100vh;
   font-family: Montserrat, sans-serif;
+  color: $color-primary;
+  background-color: $color-secondary;
 }
 
 
@@ -43,9 +45,14 @@ h1,
 h2,
 h3,
 p,
-figure,
-fieldset {
+figure {
   margin: 0;
+}
+
+fieldset  {
+    padding: 0;
+    margin: 0;
+    border: none;
 }
 
 
@@ -68,7 +75,7 @@ fieldset {
 */
 
 .container {
-  max-width: 1440px;
+  max-width: 1850px;
   padding: 0 15px;
   margin: 0 auto;
 }
@@ -80,4 +87,17 @@ fieldset {
 
 section {
   padding: 50px 0;
+}
+
+.main {
+    padding-top: 44px;
+    padding-bottom: 120px;
+}
+
+.input[type="search"]::-webkit-search-cancel-button{
+    display: none;
+}
+
+.recomended__slider .swiper-pagination-bullet-active {
+    background-color: $color-main;
 }

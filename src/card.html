@@ -5,11 +5,12 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Карточка товара</title>
+        
 	</head>
 	<body>
 		<header class="header">
 			<h1 class="visually-hidden">Techno Shop - Онлайн магазин гаджетов</h1>
-			<div class="container">
+			<div class="container header__container">
 				<a href="/"
 					><img class="header__logo" src="img/logo.svg" alt="logo"
 				/></a>
@@ -32,7 +33,7 @@
 				</form>
 
 				<div class="header__nav">
-					<a class="header__phone" href="tel:89149239223" aria-label="позвонить">
+					<a class="header__phone" href="tel:89149239223">
 						<svg
 							width="28"
 							height="28"
@@ -47,7 +48,11 @@
 						</svg>
 						<span>8 914 923 92 - 23</span>
 					</a>
-					<a class="header__cart" href="cart.html" aria-label="перейти в корзину">
+					<a
+						class="header__cart"
+						href="cart.html"
+						aria-label="Перейти в корзину"
+					>
 						<svg
 							width="36"
 							height="36"
@@ -246,7 +251,7 @@
 									<a href="card.html">
 										<img
 											class="goods-item__image"
-											src="img/1.png"
+											src="img/slider/good-1.jpg"
 											alt="монитор"
 										/>
 										<h3 class="goods-item__title">
@@ -265,7 +270,7 @@
 									<a href="card.html">
 										<img
 											class="goods-item__image"
-											src="img/1.png"
+											src="img/slider/good-2.jpg"
 											alt="монитор"
 										/>
 										<h3 class="goods-item__title">Монитор AOC 24G2U/BK</h3>
@@ -282,7 +287,7 @@
 									<a href="card.html">
 										<img
 											class="goods-item__image"
-											src="img/1.png"
+											src="img/slider/good-3.jpg"
 											alt="монитор"
 										/>
 										<h3 class="goods-item__title">Монитор AOC 24G2U/BK</h3>
@@ -299,7 +304,7 @@
 									<a href="card.html">
 										<img
 											class="goods-item__image"
-											src="img/1.png"
+											src="img/slider/good-4.jpg"
 											alt="монитор"
 										/>
 										<h3 class="goods-item__title">Монитор AOC 24G2U/BK</h3>
@@ -312,15 +317,18 @@
 								</article>
 							</li>
 						</ul>
+						<div class="swiper-pagination"></div>
 					</div>
 				</div>
 			</section>
 		</main>
 
-		<footer class="footer">
+			<footer class="footer">
 			<h2 class="visually-hidden">Подвал сайта</h2>
-			<div class="container">
-				<img class="footer__logo" src="img/logo.svg" alt="logo" />
+			<div class="container footer__container">
+                <a class="footer__logo-link" href="/">
+                    <img class="footer__logo" src="img/logo.svg" alt="logo" />
+                </a>
 				<div class="footer__column">
 					<h3 class="footer__column-title">Каталог</h3>
 
@@ -376,13 +384,13 @@
 					<h3 class="footer__column-title">Контакты</h3>
 
 					<ul class="footer__list footer__list_contacts">
-						<li class="footer__item">
+						<li class="footer__item footer__item_contact">
 							Тел:
 							<a class="footer__link" href="tel:8 9149239223">
 								8 914 923 92 - 23
 							</a>
 						</li>
-						<li class="footer__item">
+						<li class="footer__item footer__item_contact">
 							Email:
 							<a class="footer__link" href="mailto:TechnoSHOP@gmail.com">
 								TechnoSHOP@gmail.com
@@ -391,7 +399,11 @@
 					</ul>
 					<ul class="footer__social social">
 						<li class="social__item">
-							<a class="social__link" href="#" aria-label="Отправить сообщение в whatsup">
+							<a
+								class="social__link"
+								href="#"
+								aria-label="Отправить сообщение в whatsup"
+							>
 								<svg
 									width="26"
 									height="26"
@@ -440,6 +452,15 @@
 							</a>
 						</li>
 					</ul>
+				</div>
+				<div class="footer__column footer__column_copy">
+					<p>© TechnoSHOP, 2022</p>
+				</div>
+				<div class="footer__column footer__column_design">
+					<p >
+                        Design by Anastasia Ilina
+                        Tg: @Mrshmallowww
+                    </p>
 				</div>
 			</div>
 		</footer>

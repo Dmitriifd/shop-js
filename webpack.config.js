@@ -23,14 +23,14 @@ module.exports = {
 		path: path.resolve(__dirname, 'dist'),
 		clean: true,
 		filename: '[name].[contenthash].js',
-		assetModuleFilename: 'assets/[name][ext]',
+		// assetModuleFilename: 'assets/[name][ext]',
 	},
 	plugins: [
 		...PAGES.map(
 			(page) =>
 				new HtmlWebpackPlugin({
 					template: path.resolve(__dirname, 'src', `${page}.html`),
-                    filename: `./${page}.html`
+					filename: `./${page}.html`,
 				})
 		),
 		new MiniCssExtractPlugin({
