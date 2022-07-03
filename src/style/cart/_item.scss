@@ -1,0 +1,89 @@
+.item {
+	display: flex;
+	align-items: flex-start;
+	// .item__img
+	&__img {
+		width: 200px;
+		height: 200px;
+		object-fit: cover;
+		margin-right: 30px;
+	}
+	// .item__detail
+	&__detail {
+		display: flex;
+		flex-direction: column;
+		padding-top: 28px;
+		flex-basis: 353px;
+		margin-right: 25px;
+	}
+	// .item__title
+	&__title {
+		min-height: 54px;
+		font-weight: 700;
+		font-size: 22px;
+		line-height: 27px;
+		margin-bottom: 14px;
+	}
+	// .item__vendor-code
+	&__vendor-code {
+		font-weight: 500;
+		font-size: 18px;
+		line-height: 22px;
+	}
+	// .item__control
+	&__control {
+        display: flex;
+		justify-content: space-between;
+		align-items: center;
+        align-self: center;
+		flex-grow: 1;
+	}
+	// .item__count
+	&__count {
+		max-width: 120px;
+		width: 100%;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		margin-right: 70px;
+	}
+	// .item__btn
+	&__btn {
+        
+		width: 34px;
+		height: 34px;
+		border-radius: 50%;
+		border: 1px solid $color-primary;
+		background-color: transparent;
+		font-weight: 400;
+		font-size: 30px;
+		line-height: 100%;
+	}
+	// .item__btn_dec
+	&__btn_dec {
+	}
+	// .item__number
+	&__number {
+		font-weight: 400;
+		font-size: 30px;
+		line-height: 37px;
+	}
+	// .item__btn_inc
+	&__btn_inc {
+	}
+	// .item__price
+	&__price {
+		font-weight: 500;
+		font-size: 22px;
+		line-height: 27px;
+	}
+	// .item__remove-cart
+	&__remove-cart {
+ 
+		width: 19px;
+		height: 19px;
+		background-color: transparent;
+		border: none;
+        color: $color-gray-light;
+	}
+}

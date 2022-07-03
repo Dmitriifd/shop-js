@@ -9,6 +9,7 @@ const devtool = devMode ? 'source-map' : undefined;
 
 const PAGES = ['index', 'cart', 'card'];
 
+
 module.exports = {
 	mode,
 	target,
@@ -20,10 +21,10 @@ module.exports = {
 	},
 	entry: ['@babel/polyfill', path.resolve(__dirname, 'src', 'index.js')],
 	output: {
-		path: path.resolve(__dirname, 'public'),
+		path: path.resolve(__dirname, 'dist'),
 		clean: true,
 		filename: '[name].[contenthash].js',
-		// assetModuleFilename: 'assets/[name][ext]',
+		// assetModuleFilename: 'img/[name][ext]',
 	},
 	plugins: [
 		...PAGES.map(

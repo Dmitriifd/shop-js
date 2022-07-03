@@ -1,9 +1,11 @@
 .filter {
-	position: relative;
+	
 	max-width: 340px;
+    padding-top: 78px;
 
 	// .filter__form
 	&__form {
+        position: relative;
 	}
 	// .filter__title
 	&__title {
@@ -40,7 +42,10 @@
 		width: 165px;
 		font-size: 16px;
 		line-height: 20px;
-		padding: 10px;
+		padding-left: 10px;
+        padding-right: 10px;
+        height: 38px;
+        border: 1px solid $color-primary;
 
 		&_select {
 			width: 100%;
@@ -58,13 +63,16 @@
 	}
 	// .filter__apply
 	&__apply {
+        display: block;
+        margin: 0 auto;
 		font-weight: 500;
 		font-size: 16px;
 		line-height: 20px;
 		color: $color-secondary;
 		background-color: $color-primary;
 		padding: 8px 20px;
-	}
+        border: none;
+	} 
 	// .filter__reset
 	&__reset {
 		position: absolute;

@@ -1,21 +1,54 @@
 .pagination {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 21px;
+	font-size: 18px;
+	line-height: 22px;
 	// .pagination__arrow
 	&__arrow {
+		display: block;
+		width: 18px;
+		height: 18px;
+		background-image: url('img/pagination-arrow.svg');
+		background-repeat: no-repeat;
+		background-position: center;
+
+		&[href=''] {
+			opacity: 0.5;
+            pointer-events: none;
+		}
 	}
 	// .pagination__arrow_start
 	&__arrow_start {
+		transform: rotate(180deg);
 	}
+
 	// .pagination__list
 	&__list {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		gap: 10px;
 	}
 	// .pagination__item
 	&__item {
+        
 	}
 	// .pagination__link
 	&__link {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+		width: 36px;
+		height: 36px;
+		border: 2px solid transparent;
+		border-radius: 2px;
+		transition: 0.2s ease-in-out;
 	}
 	// .pagination__link_active
 	&__link_active {
+		border-color: $color-main;
 	}
 	// .pagination__arrow_end
 	&__arrow_end {
@@ -23,9 +56,9 @@
 }
 
 .swiper.recomended__slider {
-    padding-bottom: 50px;
+	padding-bottom: 50px;
 }
 
 .swiper-pagination {
-    bottom: 5px;
+	bottom: 5px;
 }

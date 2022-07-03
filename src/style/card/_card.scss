@@ -1,0 +1,133 @@
+.card {
+	margin-bottom: 70px;
+	// .card__details
+	&__details {
+		display: flex;
+		gap: 30px;
+		margin-bottom: 70px;
+	}
+	// .card__gallery
+	&__gallery {
+		max-width: 710px;
+	}
+	// .card__image
+	&__image {
+		margin-bottom: 20px;
+	}
+	// .card__slider-thumb
+	&__slider-thumb {
+		max-width: 447px;
+	}
+	
+	// .card__thumb-btn
+	&__thumb-btn {
+		width: 120px;
+		height: 120px;
+		border: none;
+		background-color: transparent;
+	}
+	// .card__info
+	&__info {
+		padding-top: 120px;
+		width: 100%;
+	}
+	// .card__title
+	&__title {
+		font-weight: 700;
+		font-size: 44px;
+		line-height: 54px;
+		margin-bottom: 20px;
+	}
+	// .card__vandor-code
+	&__vandor-code {
+		font-size: 20px;
+		line-height: 24px;
+		margin-bottom: 63px;
+	}
+	// .card__control
+	&__control {
+		display: flex;
+		align-items: center;
+		margin-bottom: 70px;
+        max-width: 826px;
+	}
+	// .card__count
+	&__count {
+		max-width: 120px;
+		width: 100%;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		margin-right: 80px;
+	}
+	// .card__btn
+	&__btn {
+		width: 34px;
+		height: 34px;
+		border-radius: 50%;
+		border: 1px solid $color-primary;
+		background-color: transparent;
+		font-weight: 400;
+		font-size: 30px;
+		line-height: 100%;
+	}
+	// .card__btn_decrement
+	&__btn_decrement {
+	}
+	// .card__number
+	&__number {
+        font-size: 30px;
+        line-height: 37px;
+	}
+	// .card__btn_increment
+	&__btn_increment {
+	}
+	// .card__price
+	&__price {
+		font-weight: 500;
+		font-size: 34px;
+		line-height: 41px;
+        margin-right: auto;
+	}
+	// .card__add-cart
+	&__add-cart {
+        width: 352px;
+        height: 57px;
+		font-weight: 700;
+		font-size: 20px;
+		line-height: 24px;
+        border: none;
+		background-color: $color-main;
+        color: $color-secondary;
+        
+	}
+	// .card__params-list
+	&__params-list {
+        font-size: 18px;
+        font-weight: 500;
+        line-height: 140%;
+	}
+	// .card__params-item
+	&__params-item {
+        display: grid;
+        grid-template-columns: 210px max-content;
+        gap: 100px;
+	}
+	// .card__description
+	&__description {
+        max-width: 1450px;
+	}
+	// .card__description-title
+	&__description-title {
+        font-weight: 700;
+        font-size: 26px;
+        line-height: 32px;
+        margin-bottom: 20px;
+	}
+	// .card__description-text
+	&__description-text {
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 140%;
+	}
+}
