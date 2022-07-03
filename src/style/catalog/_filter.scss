@@ -36,6 +36,11 @@
 		&_column {
 			flex-direction: column;
 		}
+
+        label {
+            cursor: pointer;
+            user-select: none;
+        }
 	}
 	// .filter__input
 	&__input {
@@ -46,6 +51,7 @@
         padding-right: 10px;
         height: 38px;
         border: 1px solid $color-primary;
+        outline: none;
 
 		&_select {
 			width: 100%;
@@ -55,11 +61,18 @@
 		&::placeholder {
 			color: $color-gray;
 		}
+
+        &:focus {
+            border: 1px solid transparent;
+            outline: 1px solid $color-main;
+        }
+
 	}
 
 	// .filter__checkbox
 	&__checkbox {
-		margin-right: 10px;
+        margin-right: 10px;
+        cursor: pointer;
 	}
 	// .filter__apply
 	&__apply {
@@ -72,6 +85,16 @@
 		background-color: $color-primary;
 		padding: 8px 20px;
         border: none;
+        transition: all 0.2s ease-in-out;
+
+         &:hover {
+            background-color: $color-main;
+        }
+
+        &:focus {
+            background-color: $color-main;
+            outline: none;
+        }
 	} 
 	// .filter__reset
 	&__reset {

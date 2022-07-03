@@ -4,7 +4,7 @@
 		border-radius: 20px;
 		padding: 40px 20px;
 	}
-   
+
 	// .total__table
 	&__table {
 		margin-bottom: 50px;
@@ -46,30 +46,42 @@
 	&__order {
 		display: flex;
 		align-items: center;
-        gap: 17px;
+		gap: 17px;
 	}
 	// .total__submit
 	&__submit {
 		flex-basis: 353px;
 		height: 57px;
-        font-weight: 700;
+		font-weight: 700;
 		background-color: $color-main;
 		color: $color-secondary;
-        border: none;
+		border: none;
+		transition: all 0.2s ease-in-out;
+
+		&:hover {
+			background-color: $color-main-dark;
+		}
 	}
 	// .total__agree
 	&__agree {
-        flex-basis: 292px;
-        display: flex;
-        align-items: flex-start;
-        gap: 8px;
-        font-weight: 500;
-        font-size: 14px;
-        line-height: 17px;
-        color: $color-gray;
+		flex-basis: 292px;
+		display: flex;
+		align-items: flex-start;
+		gap: 8px;
+		font-weight: 500;
+		font-size: 14px;
+		line-height: 17px;
+		color: $color-gray;
+
+		input {
+			cursor: pointer;
+		}
 	}
 	// .total__agree-link
 	&__agree-link {
-        
+		font-weight: 500;
+		font-size: 14px;
+		line-height: 17px;
+		color: $color-primary;
 	}
 }

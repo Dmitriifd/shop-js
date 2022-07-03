@@ -40,5 +40,17 @@
 		background-color: transparent;
 		border: 1px solid $color-primary;
 		padding: 8px 20px;
+        transition: all 0.2s ease-in-out;
+
+        &:hover {
+            background-color: $color-main;
+            border: 1px solid transparent;
+        }
+
+        &:active, &:focus {
+            background-color: $color-main;
+            outline: none;
+            border: none;
+        }
 	}
 }

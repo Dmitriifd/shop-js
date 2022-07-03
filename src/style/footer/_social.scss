@@ -7,5 +7,14 @@
 	}
 	// .social__link
 	&__link {
+        svg {
+            transition: all 0.2s ease-in-out;
+        }
+
+        &:hover {
+            svg {
+                fill: $color-main;
+            }
+        }
 	}
 }

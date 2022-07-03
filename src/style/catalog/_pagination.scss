@@ -13,6 +13,11 @@
 		background-image: url('img/pagination-arrow.svg');
 		background-repeat: no-repeat;
 		background-position: center;
+        transition: all 0.2s ease-in-out;
+
+        &:hover {
+           opacity: 0.5;
+        }
 
 		&[href=''] {
 			opacity: 0.5;
@@ -45,6 +50,10 @@
 		border: 2px solid transparent;
 		border-radius: 2px;
 		transition: 0.2s ease-in-out;
+
+        &:hover {
+            border: 2px solid $color-main;
+        }
 	}
 	// .pagination__link_active
 	&__link_active {

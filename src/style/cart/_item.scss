@@ -58,6 +58,12 @@
 		font-weight: 400;
 		font-size: 30px;
 		line-height: 100%;
+        transition: all 0.2s ease-in-out;
+
+        &:hover {
+           border: 1px solid $color-main;
+        }
+
 	}
 	// .item__btn_dec
 	&__btn_dec {
