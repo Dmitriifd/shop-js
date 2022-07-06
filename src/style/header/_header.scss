@@ -1,20 +1,60 @@
 .header {
-	padding-top: 26px;
-	padding-bottom: 26px;
+	padding: 26px 0;
+
+	@include mobile {
+		padding: 15px 0;
+	}
+
+    &__logo-link {
+        justify-self: start;
+    }
 
 	// .header__container
 	&__container {
 		display: grid;
 		grid-template-columns: 1fr 3fr 1fr;
-		gap: 30px;
+		gap: 32px;
+
+		@include desktop {
+			grid-template-columns: 1fr 2fr 1fr;
+		}
+		@include laptop {
+			grid-template-columns: 1fr 3fr 2fr;
+		}
+		@include tablet {
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+		}
+		@include mobile {
+			display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: space-between;
+		}
 	}
 	// .header__logo
 	&__logo {
 		display: block;
+
+         @include mobile {
+           width: 56px;
+		}
 	}
 	// .header__search
 	&__search {
 		justify-self: center;
+        max-width: 818px;
+        @include desktop {
+            justify-self: start;
+            max-width: 600px;
+		}
+        @include laptop {
+            max-width: 100%;
+		}
+        @include tablet {
+            order: 1;
+            grid-column: 2 span;
+		}
 	}
 	// .header__nav
 	&__nav {
@@ -24,6 +64,10 @@
 		max-width: 330px;
 		justify-content: space-between;
 		width: 100%;
+
+         @include mobile {
+           max-width: 212px;
+		}
 	}
 	// .header__phone
 	&__phone {
@@ -37,6 +81,11 @@
 
 		&:hover {
 			color: $color-main;
+		}
+
+        @include mobile {
+           font-size: 14px;
+           line-height: 17px;
 		}
 	}
 	// .header__cart

@@ -7,11 +7,43 @@
 		display: grid;
 		grid-template-columns: 1fr 2fr 1fr 1fr;
 		column-gap: 30px;
-        row-gap: 50px;
+		row-gap: 50px;
+		grid-template-areas:
+			'logo catalog customer contacts'
+			'copyright . . design';
+
+		@include laptop {
+			grid-template-columns: 395px 235px 280px;
+			grid-template-areas:
+				'logo . .'
+				'catalog customer contacts'
+				'copyright . design';
+		}
+
+		@include tablet {
+			grid-template-columns: 1fr 1fr;
+			grid-template-areas:
+				'logo .'
+				'catalog customer'
+				'catalog contacts'
+				'copyright design';
+		}
+
+		@include mobile {
+			grid-template-columns: 1fr;
+			grid-template-areas:
+				'logo '
+				'catalog'
+				'customer'
+				'contacts'
+				'copyright'
+				' design';
+		}
 	}
 	&__logo-link {
 		align-self: start;
 		justify-self: start;
+		grid-area: logo;
 	}
 
 	// .footer__column-title
@@ -21,14 +53,28 @@
 		line-height: 130%;
 		color: $color-secondary;
 		margin-bottom: 40px;
+
+		@include mobile {
+			font-size: 20px;
+			line-height: 130%;
+		}
 	}
 	// .footer__list
 	&__list {
 		font-size: 22px;
 		line-height: 150%;
 
+		@include mobile {
+			font-size: 14px;
+            line-height: 17px;
+		}
+
 		&_double {
 			column-count: 2;
+
+			@include tablet {
+				column-count: auto;
+			}
 		}
 		&_contacts {
 			font-weight: 500;
@@ -59,31 +105,37 @@
 	}
 	&__column {
 		color: $color-secondary;
-		&_design {
-			p {
-				max-width: 211px;
-			}
-			grid-column: 4/5;
-		}
 	}
-	&__column_copy {
+	&__copyright {
+		grid-area: copyright;
+		color: $color-secondary;
 		font-weight: 500;
 		font-size: 16px;
 		line-height: 130%;
 	}
-	&__column_design {
+	&__design {
+		grid-area: design;
 		font-weight: 500;
 		font-size: 16px;
 		line-height: 130%;
+		color: $color-secondary;
 		p {
 			max-width: 211px;
 		}
-        p a {
-            transition: all 0.2s ease-in-out;
-            &:hover {
-                color: $color-main;
-            }
-        }
-		grid-column: 4/5;
+		p a {
+			transition: all 0.2s ease-in-out;
+			&:hover {
+				color: $color-main;
+			}
+		}
+	}
+	&__catalog {
+		grid-area: catalog;
+	}
+	&__customer {
+		grid-area: customer;
+	}
+	&__contacts {
+		grid-area: contacts;
 	}
 }
