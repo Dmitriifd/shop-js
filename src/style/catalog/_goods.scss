@@ -6,17 +6,37 @@
 		grid-gap: 40px 30px;
 
 		@include desktop {
-        gap: 20px;
-           justify-content: space-evenly;
+			gap: 20px;
+			justify-content: space-evenly;
 		}
 
 		@include laptop {
 			grid-template-columns: repeat(auto-fill, 310px);
-            
 		}
 		@include mobile {
 			grid-template-columns: 145px 145px;
-           gap: 10px;
+			gap: 10px;
+		}
+	}
+
+	&__preload {
+		grid-column: 1/5;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		svg {
+			transform: rotate(0);
+			animation: rotation 1s infinite linear;
+		}
+	}
+
+	@keyframes rotation {
+		to {
+			transform: rotate(360deg);
+		}
+		from {
+			transform: rotate(0);
 		}
 	}
 }
