@@ -5,6 +5,16 @@
 		grid-template-columns: 1fr 1fr 1fr;
 		grid-template-rows: auto;
 		gap: 30px;
+
+		@include tablet {
+			grid-template-columns: 1fr 1fr;
+		}
+
+		@include mobile {
+			display: flex;
+            flex-direction: column;
+            gap: 10px;
+		}
 	}
 
 	&__input {
@@ -22,6 +32,7 @@
 	// .address__item_select
 	&__item_select {
 		padding-left: 10px;
+        height: 50px;
 	}
 	// .address__btn
 	&__btn {
@@ -29,9 +40,10 @@
 		color: $color-secondary;
 		font-size: 16px;
 		line-height: 20px;
-        font-weight: 500;
+		font-weight: 500;
 		border: none;
 		transition: all 0.2s ease-in-out;
+         height: 50px;
 
 		&:hover {
 			background-color: $color-main;
@@ -41,6 +53,8 @@
 			background-color: $color-main;
 			outline: none;
 		}
+
+       
 	}
 	// .address__item_btn
 	&__item_btn {
@@ -57,8 +71,16 @@
 		input {
 			cursor: pointer;
 		}
+
+		@include tablet {
+			grid-column: 2/3;
+		}
 	}
 	&__title {
 		margin-bottom: 30px;
+
+        @include mobile {
+            margin-bottom: 20px;
+        }
 	}
 }

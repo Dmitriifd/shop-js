@@ -84,11 +84,11 @@ fieldset {
 		max-width: 1480px;
 	}
 	@include laptop {
-		max-width: 1000px;
+		max-width: 1200px;
 		padding: 0 15px;
 	}
 	@include tablet {
-		max-width: 670px;
+		max-width: 1000px;
 	}
 	@include mobile {
 		max-width: 320px;

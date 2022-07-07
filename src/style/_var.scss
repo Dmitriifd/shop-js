@@ -7,12 +7,18 @@ $color-gray: #6f6f6f;
 $color-gray-light: #cdcdcd;
 
 $desktop: 1600px;
+$desktop-sm: 1400px;
 $laptop: 1200px;
 $tablet: 1000px;
 $mobile: 560px;
 
 @mixin desktop {
     @media (max-width: #{$desktop}) {
+        @content
+    }
+};
+@mixin desktop-sm {
+    @media (max-width: #{$desktop-sm}) {
         @content
     }
 };
