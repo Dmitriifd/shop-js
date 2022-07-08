@@ -1,7 +1,7 @@
 // импорт стандартных библиотек Node.js
 const { readFileSync } = require("fs");
 const { createServer } = require("http");
-const path = require('path')
+const path = require("path");
 
 // файл для базы данных
 const DB_FILE = process.env.DB_FILE || path.resolve(__dirname, "db.json");
@@ -29,19 +29,21 @@ class ApiError extends Error {
  */
 
 const pagination = (goods, page, count, sort) => {
-  const sortGoods = !sort.value ? goods : goods.sort((a, b) => {
-    if (sort.value === "price") {
-      if (sort.direction === "up") {
-        return a.price > b.price ? 1 : -1;
-      }
-      return a.price > b.price ? -1 : 1;
-    }
+  const sortGoods = !sort.value
+    ? goods
+    : goods.sort((a, b) => {
+        if (sort.value === "price") {
+          if (sort.direction === "up") {
+            return a.price > b.price ? 1 : -1;
+          }
+          return a.price > b.price ? -1 : 1;
+        }
 
-    if (sort.direction === "up") {
-      return a.title.toLowerCase() > b.title.toLowerCase() ? 1 : -1;
-    }
-    return a.title.toLowerCase() > b.title.toLowerCase() ? -1 : 1;
-  });
+        if (sort.direction === "up") {
+          return a.title.toLowerCase() > b.title.toLowerCase() ? 1 : -1;
+        }
+        return a.title.toLowerCase() > b.title.toLowerCase() ? -1 : 1;
+      });
 
   let end = count * page;
   let start = page === 1 ? 0 : end - count;
@@ -70,18 +72,22 @@ function getGoodsList(params = {}) {
   };
   const goods = JSON.parse(readFileSync(DB_FILE) || "[]");
 
+  // фильтрация
+  let data = goods;
+
   if (params.search) {
     const search = params.search.trim().toLowerCase();
-    return goods.filter((item) => item.title.toLowerCase().includes(search));
+    data = goods.filter(
+      (item) =>
+        item.title.toLowerCase().includes(search) ||
+        item.description.some((item) => item.toLowerCase().includes(search))
+    );
   }
 
   if (params.list) {
     const list = params.list.trim().toLowerCase();
     return goods.filter((item) => list.includes(item.id));
   }
-
-  // фильрация
-  let data = goods;
 
   if (params.category) {
     const category = params.category.trim().toLowerCase();
@@ -122,16 +128,25 @@ function getGoodsList(params = {}) {
 function getItems(itemId) {
   const goods = JSON.parse(readFileSync(DB_FILE) || "[]");
   const item = goods.find(({ id }) => id === itemId);
-  console.log(itemId);
   if (!item) throw new ApiError(404, { message: "Item Not Found" });
   return item;
+}
+
+function getCategory() {
+  const goods = JSON.parse(readFileSync(DB_FILE) || "[]");
+  const category = {};
+  for (let i = 0; i < goods.length; i++) {
+    category[goods[i].category] = goods[i].categoryRus;
+  }
+
+  return category;
 }
 
 // создаём HTTP сервер, переданная функция будет реагировать на все запросы к нему
 module.exports = server = createServer(async (req, res) => {
   // req - объект с информацией о запросе, res - объект для управления отправляемым ответом
   // чтобы не отклонять uri с img
-  if  (req.url.substring(1, 4) === 'img') {
+  if (req.url.substring(1, 4) === "img") {
     res.statusCode = 200;
     res.setHeader("Content-Type", "image/jpeg");
     require("fs").readFile(`.${req.url}`, (err, image) => {
@@ -153,6 +168,14 @@ module.exports = server = createServer(async (req, res) => {
   if (req.method === "OPTIONS") {
     // end = закончить формировать ответ и отправить его клиенту
     res.end();
+    return;
+  }
+
+  if (req.url.includes("/api/category")) {
+    const body = await (async () => {
+      if (req.method === "GET") return getCategory();
+    })();
+    res.end(JSON.stringify(body));
     return;
   }
 
@@ -211,6 +234,7 @@ module.exports = server = createServer(async (req, res) => {
       );
       console.log("Нажмите CTRL+C, чтобы остановить сервер");
       console.log("Доступные методы:");
+      console.log(`GET /api/category - получить список категорий`);
       console.log(`GET ${URI_PREFIX} - получить список товаров`);
       console.log(`GET ${URI_PREFIX}/{id} - получить товар по его ID`);
       console.log(`GET ${URI_PREFIX}?{search=""} - найти товар по названию`);
@@ -223,7 +247,6 @@ module.exports = server = createServer(async (req, res) => {
         maxprice
         mindisplay
         maxdisplay`
-
       );
       console.log(
         `GET ${URI_PREFIX}?{list="{id},{id}"} - получить товары по id`

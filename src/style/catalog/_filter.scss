@@ -35,7 +35,7 @@
 	&__flex {
 		display: flex;
 		gap: 10px;
-        justify-content: space-between;
+		justify-content: space-between;
 
 		&_column {
 			flex-direction: column;
@@ -57,13 +57,34 @@
 		border: 1px solid $color-primary;
 		outline: none;
 
-        @include laptop {
+		@include laptop {
 			width: 145px;
+		}
+
+		&-label {
+			position: relative;
+
+			&::before {
+				content: '';
+				position: absolute;
+				right: 30px;
+				top: 50%;
+				display: block;
+				width: 10px;
+				height: 10px;
+				transform: translateY(calc(-50% - 2px)) rotate(45deg);
+				border-width: 2px;
+				border-style: solid;
+				border-color: transparent $color-primary $color-primary transparent;
+				z-index: 111;
+			}
+
 		}
 
 		&_select {
 			width: 100%;
 			color: $color-gray;
+			appearance: none;
 		}
 
 		&::placeholder {
