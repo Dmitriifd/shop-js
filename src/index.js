@@ -8,6 +8,7 @@ import { getGoods, getGoodsItem } from './modules/goodsService';
 import { renderGoods } from './modules/renderGoods';
 import { renderItem, renderRecomendItems } from './modules/renderItem';
 
+
 try {
 	const goodsList = document.querySelector('.goods__list');
 

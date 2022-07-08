@@ -5,7 +5,12 @@ import Swiper, { Pagination } from 'swiper';
 export const renderGoods = (wrapper, goods) => {
 	wrapper.textContent = '';
 
-	const cards = goods.map((item) => {
+    const pageURL = new URL(location);
+    const id = +pageURL.searchParams.get('id') || 1;
+
+    const newGoods = goods.filter(item => item.id != id);
+
+	const cards = newGoods.map((item) => {
 		const li = document.createElement('li');
 		li.className = 'goods__item swiper-slide';
 		li.innerHTML = /*html*/ `
