@@ -4,12 +4,6 @@ import Swiper, { Pagination } from 'swiper';
 
 export const renderGoods = (wrapper, goods) => {
 	wrapper.textContent = '';
-	const recomendedSlider = document.querySelector('.recomended__slider');
-	if (recomendedSlider) {
-		const swiperPagination = document.createElement('div');
-		swiperPagination.className = 'swiper-pagination';
-		recomendedSlider.append(swiperPagination);
-	}
 
 	const cards = goods.map((item) => {
 		const li = document.createElement('li');
