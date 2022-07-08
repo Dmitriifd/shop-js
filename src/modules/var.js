@@ -1,1 +1,1 @@
-export const API_URL = 'https://blooming-badlands-37550.herokuapp.com/';
+export const API_URL = 'http://localhost:3024/';

@@ -3,16 +3,10 @@ import './index.scss';
 import './card.html';
 import './cart.html';
 
-// import Swiper JS
-import Swiper, { Pagination } from 'swiper';
-// import Swiper styles
-import 'swiper/css';
-import 'swiper/css/scrollbar';
-import 'swiper/css/pagination';
 import { startPagination } from './modules/pagination';
 import { getGoods, getGoodsItem } from './modules/goodsService';
 import { renderGoods } from './modules/renderGoods';
-import { renderItem } from './modules/renderItem';
+import { renderItem, renderRecomendItems } from './modules/renderItem';
 
 try {
 	const goodsList = document.querySelector('.goods__list');
@@ -66,21 +60,11 @@ try {
 			.then((category) => {
                 return getGoods({category})
             }).then(data => {
-                console.log(data);
+                renderRecomendItems(data);
             })
 	}
 } catch (error) {
 	console.warn(error);
 }
 
-new Swiper('.recomended__slider', {
-	spaceBetween: 30,
-	slidesPerView: 5,
-	loop: true,
-	pagination: {
-		el: '.swiper-pagination',
-		type: 'bullets',
-		clickable: true,
-	},
-	modules: [Pagination],
-});
+
