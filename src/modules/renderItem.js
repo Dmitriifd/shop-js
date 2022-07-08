@@ -3,7 +3,7 @@ import 'swiper/css';
 import 'swiper/css/scrollbar';
 import 'swiper/css/pagination';
 
-import Swiper, { Thumbs, Scrollbar, Pagination } from 'swiper';
+import Swiper, { Thumbs, Scrollbar } from 'swiper';
 import { API_URL } from './var';
 
 
@@ -127,57 +127,4 @@ export const renderItem = (item) => {
 		},
 		modules: [Thumbs],
 	});
-};
-
-export const renderRecomendItems = (data) => {
-	const swiperWrapper = document.querySelector('.recomended__slider-wrapper');
-	const swiperPagination = document.createElement('div');
-	swiperPagination.className = 'swiper-pagination';
-
-	const el = data.goods.map((item) => {
-		const swiperSlide = document.createElement('li');
-		swiperSlide.className = 'swiper-slide';
-		const goodsItem = document.createElement('li');
-		goodsItem.className = 'goods-item';
-		const goodsLink = document.createElement('a');
-        goodsLink.href = `/card.html?id=${item.id}`;
-		const goodsItemImage = document.createElement('img');
-		goodsItemImage.className = 'goods-item__image';
-		goodsItemImage.src = `${API_URL}${item.images.present}`;
-		const goodsItemTitle = document.createElement('h3');
-		goodsItemTitle.className = 'goods-item__title';
-		goodsItemTitle.textContent = item.title;
-		const goodsItemBuy = document.createElement('div');
-		const goodsItemPrice = document.createElement('p');
-		goodsItemPrice.textContent = item.price;
-		const goodsItemCart = document.createElement('button');
-		goodsItemCart.textContent = 'В корзину';
-		goodsItemBuy.className = 'goods-item__buy';
-		goodsItemPrice.className = 'goods-item__price';
-		goodsItemCart.className = 'goods-item__cart';
-        const recomendedSlider = document.querySelector('.recomended__slider');
-
-        recomendedSlider.append(swiperPagination);
-		goodsItemBuy.append(goodsItemPrice, goodsItemCart);
-		goodsLink.append(goodsItemImage, goodsItemTitle);
-		goodsItem.append(goodsLink, goodsItemBuy);
-		swiperSlide.append(goodsItem);
-		return swiperSlide;
-	});
-
-	swiperWrapper.append(...el);
-
-	new Swiper('.recomended__slider', {
-		spaceBetween: 30,
-		slidesPerView: 5,
-		loop: true,
-		pagination: {
-			el: '.swiper-pagination',
-			type: 'bullets',
-			clickable: true,
-		},
-		modules: [Pagination],
-	});
-
-    console.log(data);
 };

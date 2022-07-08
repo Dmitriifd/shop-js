@@ -1,11 +1,19 @@
 import { API_URL } from './var';
 
+import Swiper, { Pagination } from 'swiper';
+
 export const renderGoods = (wrapper, goods) => {
 	wrapper.textContent = '';
+	const recomendedSlider = document.querySelector('.recomended__slider');
+	if (recomendedSlider) {
+		const swiperPagination = document.createElement('div');
+		swiperPagination.className = 'swiper-pagination';
+		recomendedSlider.append(swiperPagination);
+	}
 
 	const cards = goods.map((item) => {
 		const li = document.createElement('li');
-		li.className = 'goods__item';
+		li.className = 'goods__item swiper-slide';
 		li.innerHTML = /*html*/ `
             <article class='goods-item'>
 				<a class='goods-item__link' href='card.html?id=${item.id}'>
@@ -30,4 +38,16 @@ export const renderGoods = (wrapper, goods) => {
 	});
 
 	wrapper.append(...cards);
+
+	new Swiper('.recomended__slider', {
+		spaceBetween: 30,
+		slidesPerView: 5,
+		loop: true,
+		pagination: {
+			el: '.swiper-pagination',
+			type: 'bullets',
+			clickable: true,
+		},
+		modules: [Pagination],
+	});
 };

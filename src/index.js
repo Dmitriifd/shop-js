@@ -36,6 +36,8 @@ try {
 
 try {
 	const card = document.querySelector('.card');
+    const swiperWrapper = document.querySelector('.recomended__slider-wrapper');
+    
 	if (card) {
 		const pageURL = new URL(location);
 		const id = +pageURL.searchParams.get('id') || 1;
@@ -59,8 +61,8 @@ try {
 			})
 			.then((category) => {
                 return getGoods({category})
-            }).then(data => {
-                renderRecomendItems(data);
+            }).then(({goods}) => {
+                renderGoods(swiperWrapper, goods);
             })
 	}
 } catch (error) {
