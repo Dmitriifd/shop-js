@@ -1,1 +1,1 @@
-export const API_URL = 'http://localhost:3024/';
+export const API_URL = 'https://dry-beach-95212.herokuapp.com/';
