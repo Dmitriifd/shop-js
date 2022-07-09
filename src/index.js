@@ -76,6 +76,7 @@ try {
 				return item.category;
 			})
 			.then((category) => {
+                console.log(category);
 				return getGoods({ category });
 			})
 			.then(({ goods }) => {
