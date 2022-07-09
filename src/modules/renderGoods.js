@@ -5,9 +5,11 @@ import Swiper, { Pagination } from 'swiper';
 export const renderGoods = (wrapper, goods) => {
 	wrapper.textContent = '';
 
+    // console.log(goods);
+
     if(!goods.length) {
         wrapper.innerHTML = `
-            <h2>Нет товаров по вашему запросу</h2>
+            <h2 class="search__title">По вашему запросу нет товаров </h2>
         `;
     }
 
