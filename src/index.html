@@ -15,7 +15,7 @@
 					><img class="header__logo" src="img/logo.svg" alt="logo"
 				/></a>
 				<form action="/" class="header__search search">
-					<input class="search__input" type="search" name="search"/>
+					<input class="search__input" type="search" name="search" />
 
 					<button class="search__button" aria-label="Найти товар">
 						<svg
@@ -70,14 +70,15 @@
 
 		<main class="main">
 			<section class="catalog">
-				<div class="container">
+				<div class="container catalog__container">
 					<h2 class="catalog__title">Каталог</h2>
-					<div class="catalog__container">
+					<div class="catalog__wrapper">
 						<div class="catalog__goods goods">
-							<ul class="goods__list">
-								
-							</ul>
+							<ul class="goods__list"></ul>
 						</div>
+
+						<button class="catalog__filter-btn">Фильтры</button>
+
 						<aside class="catalog__filter filter">
 							<form class="filter__form">
 								<h3 class="filter__title">Фильтры</h3>
@@ -89,7 +90,7 @@
 												class="filter__input"
 												type="number"
 												name="minprice"
-                                                step="any"
+												step="any"
 												placeholder="от"
 											/>
 										</label>
@@ -98,7 +99,7 @@
 												class="filter__input"
 												type="number"
 												name="maxprice"
-                                                step="any"
+												step="any"
 												placeholder="до"
 											/>
 										</label>
@@ -109,12 +110,10 @@
 									<label class="filter__input-label">
 										<select
 											class="filter__input filter__input_select"
-                                            id="category"
+											id="category"
 											name="category"
 										>
-											<option value="" disabled selected>
-												все категории
-											</option>
+											<option value="" disabled selected>все категории</option>
 										</select>
 									</label>
 								</fieldset>
@@ -126,7 +125,7 @@
 												class="filter__input"
 												type="number"
 												name="mindisplay"
-                                                step="any"
+												step="any"
 												placeholder="от"
 											/>
 										</label>
@@ -135,7 +134,7 @@
 												class="filter__input"
 												type="number"
 												name="maxdisplay"
-                                                step="any"
+												step="any"
 												placeholder="до"
 											/>
 										</label>
@@ -339,12 +338,11 @@
 					</ul>
 				</div>
 				<p class="footer__copyright">© TechnoSHOP, 2022</p>
-				
-				
-                <div class="footer__design">
-                    <p>Design by Anastasia Ilina</p>
-                    <a href="#">Tg: @Mrshmallowww</a>
-                </div>
+
+				<div class="footer__design">
+					<p>Design by Anastasia Ilina</p>
+					<a href="#">Tg: @Mrshmallowww</a>
+				</div>
 			</div>
 		</footer>
 

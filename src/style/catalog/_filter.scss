@@ -4,6 +4,16 @@
 
 	@include tablet {
 		display: none;
+		position: absolute;
+		background-color: $color-secondary;
+		top: 0;
+		right: 0;
+		z-index: 555;
+		padding: 14px 20px 26px;
+
+		&_show {
+			display: block;
+		}
 	}
 
 	// .filter__form
@@ -16,6 +26,24 @@
 		font-size: 26px;
 		line-height: 32px;
 		margin-bottom: 30px;
+
+		@include tablet {
+			font-size: 22px;
+			line-height: 27px;
+			display: flex;
+			align-items: center;
+			justify-content: flex-end;
+			gap: 5px;
+
+			&::after {
+				content: '';
+				display: block;
+				width: 18px;
+				height: 18px;
+				background-image: url('img/arrow-down.svg');
+                transform: rotate(180deg);
+			}
+		}
 	}
 	&__field-title {
 		font-weight: 500;
@@ -78,7 +106,6 @@
 				border-color: transparent $color-primary $color-primary transparent;
 				z-index: 111;
 			}
-
 		}
 
 		&_select {
@@ -115,6 +142,10 @@
 		border: none;
 		transition: all 0.2s ease-in-out;
 
+		@include tablet {
+			margin-bottom: 15px;
+		}
+
 		&:hover {
 			background-color: $color-main;
 		}
@@ -136,5 +167,11 @@
 		color: $color-gray;
 		border: none;
 		background-color: transparent;
+
+		@include tablet {
+			position: static;
+			display: block;
+			margin: 0 auto;
+		}
 	}
 }
