@@ -5,6 +5,12 @@ import Swiper, { Pagination } from 'swiper';
 export const renderGoods = (wrapper, goods) => {
 	wrapper.textContent = '';
 
+    if(!goods.length) {
+        wrapper.innerHTML = `
+            <h2>Нет товаров по вашему запросу</h2>
+        `;
+    }
+
     const pageURL = new URL(location);
     const id = +pageURL.searchParams.get('id') || 1;
 

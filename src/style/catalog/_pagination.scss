@@ -58,6 +58,7 @@
 	// .pagination__link_active
 	&__link_active {
 		border-color: $color-main;
+        pointer-events: none;
 	}
 	// .pagination__arrow_end
 	&__arrow_end {

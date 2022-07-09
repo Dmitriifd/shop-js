@@ -14,8 +14,8 @@
 				<a class="header__logo-link" href="/"
 					><img class="header__logo" src="img/logo.svg" alt="logo"
 				/></a>
-				<form class="header__search search">
-					<input class="search__input" type="search" />
+				<form action="/" class="header__search search">
+					<input class="search__input" type="search" name="search"/>
 
 					<button class="search__button" aria-label="Найти товар">
 						<svg
@@ -88,7 +88,8 @@
 											<input
 												class="filter__input"
 												type="number"
-												name="price-start"
+												name="minprice"
+                                                step="any"
 												placeholder="от"
 											/>
 										</label>
@@ -96,7 +97,8 @@
 											<input
 												class="filter__input"
 												type="number"
-												name="price-end"
+												name="maxprice"
+                                                step="any"
 												placeholder="до"
 											/>
 										</label>
@@ -107,16 +109,12 @@
 									<label class="filter__input-label">
 										<select
 											class="filter__input filter__input_select"
+                                            id="category"
 											name="category"
 										>
-											<option value="all" disabled selected>
+											<option value="" disabled selected>
 												все категории
 											</option>
-											<option value="phone">Смартфоны</option>
-											<option value="tab">Планшеты</option>
-											<option value="clock">Умные часы</option>
-											<option value="monoblock">Моноблоки</option>
-											<option value="notebook">Ноутбуки</option>
 										</select>
 									</label>
 								</fieldset>
@@ -127,7 +125,8 @@
 											<input
 												class="filter__input"
 												type="number"
-												name="diagonal-start"
+												name="mindisplay"
+                                                step="any"
 												placeholder="от"
 											/>
 										</label>
@@ -135,7 +134,8 @@
 											<input
 												class="filter__input"
 												type="number"
-												name="diagonal-end"
+												name="maxdisplay"
+                                                step="any"
 												placeholder="до"
 											/>
 										</label>

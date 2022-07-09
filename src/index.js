@@ -6,18 +6,15 @@ import './cart.html';
 import { startPagination } from './modules/pagination';
 import { getGoods, getGoodsItem } from './modules/goodsService';
 import { renderGoods } from './modules/renderGoods';
-import { renderItem, renderRecomendItems } from './modules/renderItem';
-
+import { renderItem } from './modules/renderItem';
+import { filter } from './modules/filter';
 
 try {
 	const goodsList = document.querySelector('.goods__list');
 
 	if (goodsList) {
 		const paginationWrapper = document.querySelector('.pagination');
-
-		const pageURL = new URL(location);
-		const page = +pageURL.searchParams.get('page') || 1;
-
+		filter(goodsList, paginationWrapper);
 		goodsList.innerHTML = `
         <div class="goods__preload">
             <svg width="256" height="256" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -26,7 +23,7 @@ try {
         </div>
     `;
 
-		getGoods({ page }).then(({ goods, pages, page }) => {
+		getGoods().then(({ goods, pages, page }) => {
 			renderGoods(goodsList, goods);
 			startPagination(paginationWrapper, pages, page);
 		});
@@ -37,8 +34,8 @@ try {
 
 try {
 	const card = document.querySelector('.card');
-    const swiperWrapper = document.querySelector('.recomended__slider-wrapper');
-    
+	const swiperWrapper = document.querySelector('.recomended__slider-wrapper');
+
 	if (card) {
 		const pageURL = new URL(location);
 		const id = +pageURL.searchParams.get('id') || 1;
@@ -61,13 +58,12 @@ try {
 				return item.category;
 			})
 			.then((category) => {
-                return getGoods({category})
-            }).then(({goods}) => {
-                renderGoods(swiperWrapper, goods);
-            })
+				return getGoods({ category });
+			})
+			.then(({ goods }) => {
+				renderGoods(swiperWrapper, goods);
+			});
 	}
 } catch (error) {
 	console.warn(error);
 }
-
-
