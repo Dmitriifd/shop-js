@@ -71,6 +71,11 @@
 		padding: 8px 20px;
 		transition: all 0.2s ease-in-out;
 
+        &_remove {
+            color: $color-secondary;
+            background-color: $color-primary;
+        }
+
 		@include mobile {
 			font-size: 12px;
 			line-height: 15px;
@@ -81,11 +86,6 @@
 			border: 1px solid transparent;
 		}
 
-		&:active,
-		&:focus {
-			background-color: $color-main;
-			outline: none;
-			border: none;
-		}
+		
 	}
 }

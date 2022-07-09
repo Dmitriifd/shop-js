@@ -7,14 +7,14 @@
 		<title>Карточка товара</title>
 	</head>
 	<body>
-		<header class="header">
+			<header class="header">
 			<h1 class="visually-hidden">Techno Shop - Онлайн магазин гаджетов</h1>
 			<div class="container header__container">
-				<a href="/"
+				<a class="header__logo-link" href="/"
 					><img class="header__logo" src="img/logo.svg" alt="logo"
 				/></a>
-				<form class="header__search search">
-					<input class="search__input" type="search" />
+				<form action="/" class="header__search search">
+					<input class="search__input" type="search" name="search" />
 
 					<button class="search__button" aria-label="Найти товар">
 						<svg
@@ -50,6 +50,7 @@
 						class="header__cart"
 						href="cart.html"
 						aria-label="Перейти в корзину"
+                        data-count="0"
 					>
 						<svg
 							width="36"

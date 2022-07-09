@@ -45,7 +45,7 @@ export const filter = (goodsList, paginationWrapper) => {
 
 		const data = {};
 		const formData = new FormData(filterForm);
-
+        
 		for (const [name, value] of formData) {
 			if (!value) continue;
 

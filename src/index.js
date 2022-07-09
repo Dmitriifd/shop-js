@@ -8,6 +8,8 @@ import { getGoods, getGoodsItem } from './modules/goodsService';
 import { renderGoods } from './modules/renderGoods';
 import { renderItem } from './modules/renderItem';
 import { filter } from './modules/filter';
+import { cartControl } from './modules/cartControl';
+import { counterControl } from './modules/counterControl';
 
 try {
 	const goodsList = document.querySelector('.goods__list');
@@ -26,6 +28,11 @@ try {
 		getGoods().then(({ goods, pages, page }) => {
 			renderGoods(goodsList, goods);
 			startPagination(paginationWrapper, pages, page);
+			cartControl({
+				wrapper: goodsList,
+				classAdd: 'goods-item__cart',
+				classDelete: 'goods-item__cart_remove',
+			});
 		});
 	}
 } catch (error) {
@@ -50,9 +57,20 @@ try {
 
 		card.append(preload);
 
+		counterControl({
+			selectorWrapper: '.card__count',
+			selectorDec: '.card__btn_decrement',
+			selectorInc: '.card__btn_increment',
+			selectorNumber: '.card__number',
+		});
+
 		getGoodsItem(id)
 			.then((item) => {
 				renderItem(item);
+                cartControl({
+                    classAdd: 'card__add-cart',
+                    classCount: 'card__number',
+                })
 				preload.remove();
 
 				return item.category;
