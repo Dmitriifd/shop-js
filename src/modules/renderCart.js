@@ -1,3 +1,4 @@
+import { checkItems } from './cartControl';
 import { getGoodsCart } from './goodsService';
 import { API_URL } from './var';
 
@@ -49,5 +50,6 @@ export const renderCart = () => {
 
 	getGoodsCart(array).then((data) => {
 		renderGoods(data);
+        checkItems()
 	});
 };

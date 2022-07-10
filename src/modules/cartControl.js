@@ -21,7 +21,7 @@ export const removeToCart = (id) => {
       renderCart();
 };
 
-const checkItems = ({ classDelete, classAdd, classCount } = {}) => {
+export const checkItems = ({ classDelete, classAdd, classCount } = {}) => {
 	const cartGoods = localStorage.getItem('cart-ts')
 		? JSON.parse(localStorage.getItem('cart-ts'))
 		: {};
