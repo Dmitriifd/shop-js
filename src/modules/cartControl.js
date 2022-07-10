@@ -37,7 +37,6 @@ const checkItems = ({ classDelete, classAdd, classCount } = {}) => {
 
 		elems.forEach((elem) => {
 			if (cartGoods[elem.dataset.idGoods]) {
-                console.log(classDelete);
 				elem.classList.add(classDelete);
 				elem.textContent = 'В корзине';
 			} else {
@@ -60,7 +59,6 @@ export const cartControl = ({ wrapper, classAdd, classDelete, classCount }) => {
 
 	if (wrapper) {
 		wrapper.addEventListener('click', (e) => {
-            console.log(classDelete);
 			const target = e.target;
 			const id = target.dataset.idGoods;
 

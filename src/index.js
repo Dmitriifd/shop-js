@@ -4,12 +4,13 @@ import './card.html';
 import './cart.html';
 
 import { startPagination } from './modules/pagination';
-import { getGoods, getGoodsItem } from './modules/goodsService';
+import { getCategory, getGoods, getGoodsItem } from './modules/goodsService';
 import { renderGoods } from './modules/renderGoods';
 import { renderItem } from './modules/renderItem';
 import { filter } from './modules/filter';
 import { cartControl } from './modules/cartControl';
 import { counterControl } from './modules/counterControl';
+import { categoryFooter } from './modules/categoryFooter';
 
 try {
 	const goodsList = document.querySelector('.goods__list');
@@ -67,16 +68,16 @@ try {
 		getGoodsItem(id)
 			.then((item) => {
 				renderItem(item);
-                cartControl({
-                    classAdd: 'card__add-cart',
-                    classCount: 'card__number',
-                })
+				cartControl({
+					classAdd: 'card__add-cart',
+					classCount: 'card__number',
+				});
 				preload.remove();
 
 				return item.category;
 			})
 			.then((category) => {
-                console.log(category);
+				console.log(category);
 				return getGoods({ category });
 			})
 			.then(({ goods }) => {
@@ -85,4 +86,12 @@ try {
 	}
 } catch (error) {
 	console.warn(error);
+}
+
+try {
+	getCategory().then((categoryList) => {
+		categoryFooter(categoryList);
+	});
+} catch (error) {
+    console.warn(error);
 }
