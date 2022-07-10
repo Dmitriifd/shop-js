@@ -103,12 +103,11 @@ try {
 		renderCart();
 
 		cartGoodsList.addEventListener('click', (e) => {
-			console.log(e.target);
 			if (
 				e.target.classList.contains('remove-cart') ||
 				e.target.classList.contains('icon-cart') 
 			) {
-				removeToCart(e.target.id);
+				removeToCart(e.target.dataset.id);
 			}
 		});
 	}

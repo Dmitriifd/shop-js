@@ -24,8 +24,8 @@ const renderGoods = (data = []) => {
                 </div>
                 <p class="item__price">${price} ₽</p>
                 <button class="item__remove-cart" aria-label="удалить товар">
-                    <svg class="icon-cart" id=${id}>
-                        <use class="remove-cart" id=${id} href="#remove"></use>
+                    <svg class="icon-cart" data-id=${id}>
+                        <use class="remove-cart" data-id=${id} href="#remove"></use>
                     </svg>
                 </button>
             </div>
