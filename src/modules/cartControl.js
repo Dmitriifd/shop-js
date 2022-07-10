@@ -1,3 +1,5 @@
+import { renderCart } from "./renderCart";
+
 const addToCart = (id, count = 1) => {
 	const cartGoods = localStorage.getItem('cart-ts')
 		? JSON.parse(localStorage.getItem('cart-ts'))
@@ -8,7 +10,7 @@ const addToCart = (id, count = 1) => {
 	localStorage.setItem('cart-ts', JSON.stringify(cartGoods));
 };
 
-const removeToCart = (id) => {
+export const removeToCart = (id) => {
 	const cartGoods = localStorage.getItem('cart-ts')
 		? JSON.parse(localStorage.getItem('cart-ts'))
 		: {};
@@ -16,6 +18,7 @@ const removeToCart = (id) => {
 	delete cartGoods[id];
 
 	localStorage.setItem('cart-ts', JSON.stringify(cartGoods));
+      renderCart();
 };
 
 const checkItems = ({ classDelete, classAdd, classCount } = {}) => {

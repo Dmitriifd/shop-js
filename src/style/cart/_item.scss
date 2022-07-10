@@ -69,9 +69,9 @@
 			margin-bottom: 12px;
 		}
 
-        @include mobile {
-            max-width: 165px;
-        }
+		@include mobile {
+			max-width: 165px;
+		}
 	}
 	// .item__vendor-code
 	&__vendor-code {
@@ -151,16 +151,17 @@
 		flex-shrink: 0;
 		svg {
 			transition: all 0.2s ease-in-out;
+            pointer-events: all;
 			&:hover {
 				color: $color-primary;
 			}
 		}
 
-        @media (max-width: 675px) {
-            position: absolute;
+		@media (max-width: 675px) {
+			position: absolute;
 			top: 5px;
 			right: 0;
-        }
+		}
 
 		@include mobile {
 			top: 5px;

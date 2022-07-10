@@ -8,9 +8,10 @@ import { getCategory, getGoods, getGoodsItem } from './modules/goodsService';
 import { renderGoods } from './modules/renderGoods';
 import { renderItem } from './modules/renderItem';
 import { filter } from './modules/filter';
-import { cartControl } from './modules/cartControl';
+import { cartControl, removeToCart } from './modules/cartControl';
 import { counterControl } from './modules/counterControl';
 import { categoryFooter } from './modules/categoryFooter';
+import { renderCart } from './modules/renderCart';
 
 try {
 	const goodsList = document.querySelector('.goods__list');
@@ -77,7 +78,6 @@ try {
 				return item.category;
 			})
 			.then((category) => {
-				console.log(category);
 				return getGoods({ category });
 			})
 			.then(({ goods }) => {
@@ -93,5 +93,25 @@ try {
 		categoryFooter(categoryList);
 	});
 } catch (error) {
-    console.warn(error);
+	console.warn(error);
+}
+
+try {
+	const cartGoodsList = document.querySelector('.cart-goods__list');
+
+	if (cartGoodsList) {
+		renderCart();
+
+		cartGoodsList.addEventListener('click', (e) => {
+			console.log(e.target);
+			if (
+				e.target.classList.contains('remove-cart') ||
+				e.target.classList.contains('icon-cart') 
+			) {
+				removeToCart(e.target.id);
+			}
+		});
+	}
+} catch (error) {
+	console.warn(error);
 }
