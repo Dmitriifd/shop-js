@@ -4,6 +4,7 @@ import { API_URL } from './var';
 
 const renderGoods = (data = []) => {
 	const wrapper = document.querySelector('.cart-goods__list');
+	const total = document.querySelector('.total__row_count');
 
 	if (wrapper) {
 		wrapper.innerHTML = '';
@@ -33,6 +34,15 @@ const renderGoods = (data = []) => {
         </li>
         `;
 			});
+
+           const sum =  data.reduce((acc, item) => {
+                console.log(acc + item.price);
+                return acc + item.price
+            }, 0)
+
+            total.textContent = sum;
+
+            console.log(sum);
 		} else {
 			wrapper.innerHTML = 'корзина пуста';
 		}
@@ -50,6 +60,6 @@ export const renderCart = () => {
 
 	getGoodsCart(array).then((data) => {
 		renderGoods(data);
-        checkItems()
+		checkItems();
 	});
 };

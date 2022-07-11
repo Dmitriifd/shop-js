@@ -12,12 +12,14 @@ import { cartControl, removeToCart } from './modules/cartControl';
 import { counterControl } from './modules/counterControl';
 import { categoryFooter } from './modules/categoryFooter';
 import { renderCart } from './modules/renderCart';
+import { searchWithOutReload } from './modules/search';
 
 try {
 	const goodsList = document.querySelector('.goods__list');
 
 	if (goodsList) {
 		const paginationWrapper = document.querySelector('.pagination');
+        searchWithOutReload(goodsList, paginationWrapper);
 		filter(goodsList, paginationWrapper);
 		goodsList.innerHTML = `
         <div class="goods__preload">
@@ -105,7 +107,7 @@ try {
 		cartGoodsList.addEventListener('click', (e) => {
 			if (
 				e.target.classList.contains('remove-cart') ||
-				e.target.classList.contains('icon-cart') 
+				e.target.classList.contains('icon-cart')
 			) {
 				removeToCart(e.target.dataset.id);
 			}

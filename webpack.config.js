@@ -10,6 +10,22 @@ const devtool = devMode ? 'source-map' : undefined;
 
 const PAGES = ['index', 'cart', 'card'];
 
+const plugins = [
+	...PAGES.map(
+		(page) =>
+			new HtmlWebpackPlugin({
+				template: path.resolve(__dirname, 'src', `${page}.html`),
+				filename: `./${page}.html`,
+			})
+	),
+	new MiniCssExtractPlugin({
+		filename: '[name].[contenthash].css',
+	}),
+];
+
+if (!devMode) {
+	plugins.push(new CriticalCssPlugin());
+}
 
 module.exports = {
 	mode,
@@ -27,19 +43,7 @@ module.exports = {
 		filename: '[name].[contenthash].js',
 		// assetModuleFilename: 'img/[name][ext]',
 	},
-	plugins: [
-		...PAGES.map(
-			(page) =>
-				new HtmlWebpackPlugin({
-					template: path.resolve(__dirname, 'src', `${page}.html`),
-					filename: `./${page}.html`,
-				})
-		),
-		new MiniCssExtractPlugin({
-			filename: '[name].[contenthash].css',
-		}),
-		// new CriticalCssPlugin(),
-	],
+	plugins,
 	module: {
 		rules: [
 			{
