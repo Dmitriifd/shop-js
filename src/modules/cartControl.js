@@ -1,6 +1,4 @@
-import { renderCart } from "./renderCart";
-
-const addToCart = (id, count = 1) => {
+export const addToCart = (id, count = 1) => {
 	const cartGoods = localStorage.getItem('cart-ts')
 		? JSON.parse(localStorage.getItem('cart-ts'))
 		: {};
@@ -18,7 +16,6 @@ export const removeToCart = (id) => {
 	delete cartGoods[id];
 
 	localStorage.setItem('cart-ts', JSON.stringify(cartGoods));
-      renderCart();
 };
 
 export const checkItems = ({ classDelete, classAdd, classCount } = {}) => {
@@ -57,10 +54,10 @@ export const checkItems = ({ classDelete, classAdd, classCount } = {}) => {
 	}
 };
 
-export const cartControl = ({ wrapper, classAdd, classDelete, classCount }) => {
+export const cartControl = ({ wrapper, classAdd, classDelete, classCount } = {}) => {
 	checkItems({ classDelete, classAdd, classCount });
 
-	if (wrapper) {
+	if ((wrapper && classAdd && classDelete)) {
 		wrapper.addEventListener('click', (e) => {
 			const target = e.target;
 			const id = target.dataset.idGoods;
@@ -73,16 +70,16 @@ export const cartControl = ({ wrapper, classAdd, classDelete, classCount }) => {
 				addToCart(id);
 			}
 
-			checkItems({classDelete});
+			checkItems({ classDelete });
 		});
-	} else {
+	} else if (classAdd && classCount) {
 		const btn = document.querySelector(`.${classAdd}`);
 		const countElem = document.querySelector(`.${classCount}`);
 		const id = btn.dataset.idGoods;
 
 		btn.addEventListener('click', () => {
 			const count = +countElem.value;
-           
+
 			addToCart(id, count);
 			checkItems({ countElem });
 		});

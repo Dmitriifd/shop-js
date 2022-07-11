@@ -92,7 +92,7 @@ fieldset {
 	}
 	@include mobile {
 		max-width: 320px;
-        padding: 0 10px;
+		padding: 0 10px;
 	}
 }
 
@@ -109,13 +109,12 @@ section {
 	padding-top: 44px;
 	padding-bottom: 120px;
 
-    @include tablet {
+	@include tablet {
 		padding-top: 24px;
-        padding-bottom: 80px;
+		padding-bottom: 80px;
 	}
 	@include mobile {
 		padding-top: 35px;
-
 	}
 }
 
@@ -134,4 +133,19 @@ section {
 
 .swiper-slide.card__thumb-btn_active {
 	outline: 2px solid $color-main;
+}
+
+.preload {
+	position: absolute;
+	inset: 0;
+	z-index: 100;
+	background-color: $color-secondary;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	svg {
+		transform: rotate(0);
+		animation: rotation 1s infinite linear;
+	}
 }

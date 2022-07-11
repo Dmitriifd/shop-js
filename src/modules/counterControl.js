@@ -1,12 +1,19 @@
 export const counterControl = ({
-	selectorWrapper,
-	selectorNumber,
+	wrapper,
+	number,
 	selectorDec,
 	selectorInc,
 }) => {
-	const wrapCounter = document.querySelector(selectorWrapper);
-	const numberElem = document.querySelector(selectorNumber);
-    
+	let wrapCounter, numberElem;
+
+	if (typeof wrapper === 'string') {
+		wrapCounter = document.querySelector(wrapper);
+		numberElem = wrapCounter.querySelector(number);
+	} else {
+		wrapCounter = wrapper
+		numberElem = number;
+	}
+
 	wrapCounter.addEventListener('click', (e) => {
 		const target = e.target;
 
