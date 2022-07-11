@@ -37,11 +37,11 @@ try {
 		getGoods().then(({ goods, pages, page }) => {
 			renderGoods(goodsList, goods);
 			startPagination(paginationWrapper, pages, page);
-			cartControl({
-				wrapper: goodsList,
-				classAdd: 'goods-item__cart',
-				classDelete: 'goods-item__cart_remove',
-			});
+			// cartControl({
+			// 	wrapper: goodsList,
+			// 	classAdd: 'goods-item__cart',
+			// 	classDelete: 'goods-item__cart_remove',
+			// });
 		});
 	}
 } catch (error) {

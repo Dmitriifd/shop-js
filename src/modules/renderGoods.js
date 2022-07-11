@@ -1,20 +1,21 @@
 import { API_URL } from './var';
 
 import Swiper, { Pagination } from 'swiper';
+import { cartControl } from './cartControl';
 
 export const renderGoods = (wrapper, goods) => {
 	wrapper.textContent = '';
 
-    if(!goods.length) {
-        wrapper.innerHTML = `
+	if (!goods.length) {
+		wrapper.innerHTML = `
             <h2 class="search__title">По вашему запросу нет товаров </h2>
         `;
-    }
+	}
 
-    const pageURL = new URL(location);
-    const id = +pageURL.searchParams.get('id') || 1;
+	const pageURL = new URL(location);
+	const id = +pageURL.searchParams.get('id') || 1;
 
-    const newGoods = goods.filter(item => item.id != id);
+	const newGoods = goods.filter((item) => item.id != id);
 
 	const cards = newGoods.map((item) => {
 		const li = document.createElement('li');
@@ -45,8 +46,8 @@ export const renderGoods = (wrapper, goods) => {
 	wrapper.append(...cards);
 
 	new Swiper('.recomended__slider', {
-		spaceBetween: 30,
-		slidesPerView: 5,
+		spaceBetween: 10,
+		slidesPerView: 2,
 		loop: true,
 		pagination: {
 			el: '.swiper-pagination',
@@ -54,5 +55,30 @@ export const renderGoods = (wrapper, goods) => {
 			clickable: true,
 		},
 		modules: [Pagination],
+		breakpoints: {
+			521: {
+				slidesPerView: 1.5,
+			},
+			620: {
+				spaceBetween: 20,
+				slidesPerView: 2,
+			},
+			1024: {
+				slidesPerView: 3,
+			},
+			1600: {
+				slidesPerView: 4,
+				spaceBetween: 30,
+			},
+			1920: {
+				slidesPerView: 5,
+			},
+		},
+	});
+
+	cartControl({
+		wrapper,
+		classAdd: 'goods-item__cart',
+		classDelete: 'goods-item__cart_remove',
 	});
 };
